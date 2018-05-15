@@ -12,7 +12,7 @@ function _vish_command_end --on-event fish_postexec
 	end
 
 	set -l alert_time 10
-	set interval (math (date +%s) - $_FISH_INTERACTIVE_COMMAND_START)
+	set interval (math (date +%s) - $_VISH_INTERACTIVE_COMMAND_START)
 	if [ "$interval" -gt "$alert_time" ]
 		if type -q _vish_ping
 			_vish_ping
