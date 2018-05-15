@@ -8,8 +8,8 @@ _vish_bind_register m _vish_bind_dir
 _vish_bind_register - _vish_unbind_dir
 _vish_bind_register g _vish_cd_bound_dir
 
-_vish_bind g _vish_prompt_git_branch
-_vish_bind s _vish_prompt_short_path
-_vish_bind p _vish_prompt_ping
+_vish_bind g "_vish_prompt_toggle GIT_BRANCH"
+_vish_bind s "_vish_prompt_toggle SHORT_PATH"
+_vish_bind p "_vish_prompt_toggle PING"
 _vish_bind m _vish_ls_bound_dirs
 _vish_bind h "history --merge"
