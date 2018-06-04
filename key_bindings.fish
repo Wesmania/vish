@@ -5,8 +5,12 @@ bind -M vish-cmd \e -m default "commandline -f repaint"
 _vish_bind_registers b _vish_bind_key
 _vish_bind_registers e _vish_execute_bound_key
 _vish_bind_registers m _vish_bind_dir
-_vish_bind_registers - _vish_unbind_dir
+_vish_bind_registers -m _vish_unbind_dir
 _vish_bind_registers g _vish_cd_bound_dir
+
+_vish_bind_registers p _vish_bind_cmd_prefix
+_vish_bind_registers -p _vish_bind_cmd_prefix
+_vish_bind_registers z _vish_toggle_cmd_prefix
 
 _vish_bind g "_vish_prompt_toggle GIT_BRANCH"
 _vish_bind s "_vish_prompt_toggle SHORT_PATH"
