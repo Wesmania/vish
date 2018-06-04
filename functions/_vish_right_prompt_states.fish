@@ -6,7 +6,7 @@ function _vish_right_prompt_states
 	end
 	if _vish_prompt_set PING
 		set -l ping_color (set_color DDDD00)
-		set states $states(printf "%s%s" $ping_color P)
+		set states $states(printf "%s%s" $ping_color I)
 	end
 	if test "$states" != ""
 		printf "[%s%s]" $states (set_color normal)

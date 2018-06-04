@@ -14,6 +14,7 @@ _vish_bind_registers z _vish_toggle_cmd_prefix
 
 _vish_bind g "_vish_prompt_toggle GIT_BRANCH"
 _vish_bind s "_vish_prompt_toggle SHORT_PATH"
-_vish_bind p "_vish_prompt_toggle PING"
+_vish_bind i "_vish_prompt_toggle PING"
 _vish_bind m _vish_ls_bound_dirs
+_vish_bind p _vish_ls_bound_prefices
 _vish_bind h "history --merge"
