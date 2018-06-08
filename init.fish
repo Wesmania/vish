@@ -6,15 +6,9 @@
 # * $dependencies  package dependencies
 
 
-if not set -q _VISH_BOUND_KEYS
-	set -Ux _VISH_BOUND_KEYS (for i in (_vish_registers) ; echo "" ; end)
-end
-if not set -q _VISH_BOUND_DIRS
-	set -Ux _VISH_BOUND_DIRS (for i in (_vish_registers) ; echo "" ; end)
-end
-if not set -q _VISH_BOUND_PREFICES
-	set -Ux _VISH_BOUND_PREFICES (for i in (_vish_registers) ; echo "" ; end)
-end
+_vish_register_init KEYS
+_vish_register_init DIRS
+_vish_register_init PREFICES
 
 source $path/functions/_vish_mark_time.fish
 source $path/functions/_vish_command_end.fish
