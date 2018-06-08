@@ -2,19 +2,13 @@ bind \e\' -m vish-cmd force-repaint
 bind \e\' -M vish-cmd -m default force-repaint
 bind -M vish-cmd \e -m default "commandline -f repaint"
 
-_vish_bind_registers b _vish_bind_key
-_vish_bind_registers e _vish_execute_bound_key
-_vish_bind_registers m _vish_bind_dir
-_vish_bind_registers -m _vish_unbind_dir
+_vish_make_regset m DIRS
 _vish_bind_registers g _vish_cd_bound_dir
 
-_vish_bind_registers p _vish_bind_cmd_prefix
-_vish_bind_registers -p _vish_bind_cmd_prefix
+_vish_make_regset p PREFICES
 _vish_bind_registers z _vish_toggle_cmd_prefix
 
 _vish_bind g "_vish_prompt_toggle GIT_BRANCH"
 _vish_bind s "_vish_prompt_toggle SHORT_PATH"
 _vish_bind i "_vish_prompt_toggle PING"
-_vish_bind m _vish_ls_bound_dirs
-_vish_bind p _vish_ls_bound_prefices
 _vish_bind h "history --merge"
