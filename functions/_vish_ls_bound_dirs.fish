@@ -1,3 +1,0 @@
-function _vish_ls_bound_dirs
-	_vish_register_list DIRS
-end

@@ -1,3 +1,0 @@
-function _vish_ls_bound_prefices
-	_vish_register_list PREFICES
-end
