@@ -3,5 +3,5 @@ function _vish_register_clear -a name -a key
 	if not set -q $regs
 		return 1
 	end
-	set -Ux $$regs[1][(_vish_reg2idx $key)] ''
+	set -Ux $regs[1][(_vish_reg2idx $key)] ''
 end

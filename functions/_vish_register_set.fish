@@ -4,6 +4,6 @@ function _vish_register_set -a name -a key
 	if not set -q $regs
 		return 1
 	end
-	set -l $idx (_vish_reg2idx $key)
+	set -l idx (_vish_reg2idx $key)
 	set -Ux $regs[1][$idx] (eval _vish_source_of_$smallname)
 end
