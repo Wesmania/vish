@@ -29,7 +29,7 @@ Vish uses register sets bound to different letters for saving and recalling thin
 - &lt;leader&gt;'y-x clears value of register y.
 - &lt;leader&gt;=x pretty-prints contents of register set bound to x.
 
-Currently registers consists of keys a-z. Two register sets are currently available - directory and commandline.
+Currently registers consist of keys a-z. Two register sets are currently available - directory and commandline.
 
 ### Directory set
 
@@ -47,6 +47,20 @@ Commandline register set is bound to 'p'. Setting a register from that set sets 
 You can use the 'bound\_prefices x' command to print contents of register x (convenient for small scripting).
 
 ### Prompt functions
+
+Vish has a handful of prompt functions to compose your prompt with and which react to toggle commands. These are:
+- \_vish\_prompt\_path - current directory. Can be shortened to last $VISH\_PROMPT\_SHORT\_PATH\_MAX\_LENGTH characters with &lt;leader&gt;s.
+- \_vish\_right\_prompt\_git\_branch - current git branch. Can be toggled on / off with &lt;leader&gt;g.
+- \_vish\_right\_prompt\_states - Vish state indicators. Currently indicate presence of background jobs and ping mode.
+- \_vish\_right\_prompt\_status - Last command status.
+
+### Ping mode
+
+Sequence &lt;leader&gt;p toggles ping mode. In ping mode, any commands (not run in background) that run longer than $VISH\_COMMAND\_PING\_MIN\_TIME seconds (or default 10) will call \_vish\_ping once they are done, if it's defined. Implementation of \_vish\_ping is left to the user. Any command that matches a regex in a $VISH\_INTERACTIVE\_CMDS array will be considered interactive, and won't be pinged.
+
+### Other
+
+Sequence &lt;leader&gt;h calls history --merge. Convenient when working with fish in pultiple tabs.
 
 # License
 
