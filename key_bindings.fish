@@ -1,6 +1,15 @@
-bind \e\' -m vishcmd force-repaint
+bind \e\' -m vishregister force-repaint
+bind \e\' -M vishregister -m vishcmd force-repaint
 bind \e\' -M vishcmd -m default force-repaint
-bind -M vishcmd \e -m default "commandline -f repaint"
+
+for mode in vishcmd vishregister vishregcmd
+	bind \e -M $mode -m default "commandline -f repaint"
+end
+
+bind \' -M vishcmd -m vishregister force-repaint
+for reg in (_vish_registers)
+	bind -M vishregister -m vishregcmd -- $reg "set -g _VISH_LAST_REGISTER $reg ; commandline -f repaint"
+end
 
 _vish_make_regset m DIRS
 _vish_bind_registers g _vish_cd_bound_dir

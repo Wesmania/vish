@@ -53,6 +53,7 @@ Vish has a handful of prompt functions to compose your prompt with and which rea
 - \_vish\_right\_prompt\_git\_branch - current git branch. Can be toggled on / off with &lt;leader&gt;g.
 - \_vish\_right\_prompt\_states - Vish state indicators. Currently indicate presence of background jobs and ping mode.
 - \_vish\_right\_prompt\_status - Last command status.
+- \_vish\_status\_mark - emit a character depending on vish mode. To be used in fish\_mode\_prompt.
 
 ### Ping mode
 
