@@ -5,7 +5,6 @@
 # * $path          package path
 # * $dependencies  package dependencies
 
-
 _vish_register_init KEYS
 _vish_register_init DIRS
 _vish_register_init PREFICES

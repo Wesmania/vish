@@ -1,6 +1,6 @@
-bind \e\' -m vish-cmd force-repaint
-bind \e\' -M vish-cmd -m default force-repaint
-bind -M vish-cmd \e -m default "commandline -f repaint"
+bind \e\' -m vishcmd force-repaint
+bind \e\' -M vishcmd -m default force-repaint
+bind -M vishcmd \e -m default "commandline -f repaint"
 
 _vish_make_regset m DIRS
 _vish_bind_registers g _vish_cd_bound_dir
