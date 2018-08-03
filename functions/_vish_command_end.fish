@@ -5,7 +5,7 @@ function _vish_command_end --on-event fish_postexec
 	if not _vish_prompt_set PING
 		return
 	end
-	for icmd in $VISH_INTERACTIVE_CMDS
+	for icmd in $VISH_INTERACTIVE_CMDS '^vish_noping'
 		if echo $argv[1] | grep $icmd > /dev/null ^ /dev/null
 			return
 		end
