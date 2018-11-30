@@ -59,6 +59,10 @@ Vish has a handful of prompt functions to compose your prompt with and which rea
 
 Sequence &lt;leader&gt;&lt;leader&gt;p toggles ping mode. In ping mode, any commands (not run in background) that run longer than $VISH\_COMMAND\_PING\_MIN\_TIME seconds (or default 10) will call \_vish\_ping once they are done, if it's defined. Implementation of \_vish\_ping is left to the user. Any command that matches a regex in a $VISH\_INTERACTIVE\_CMDS array will be considered interactive, and won't be pinged.
 
+### Subcommand substitution
+
+Sequence &lt;leader&gt;&lt;leader&gt;e, given that cursor is at the start or right after end of `(command)`, substitutes `(command)` with output of `command`.
+
 ### Other
 
 Sequence &lt;leader&gt;&lt;leader&gt;h calls history --merge. Convenient when working with fish in pultiple tabs.
