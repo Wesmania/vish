@@ -43,6 +43,7 @@ You can use the 'bound\_dir x' command to print contents of register x (convenie
 Commandline register set is bound to 'p'. Setting a register from that set sets it to current commandline contents. This set provides additional bindings:
 - &lt;leader&gt;ya inserts saved contents at current cursor position, moving the cursor to the end of inserted content.
 - &lt;leader&gt;yz toggles 'prefix mode' on and off. In prefix mode, contents of register 'y' (as of time of toggle) will be prepended to commandline at every new prompt. Very convenient for commands like git!
+- &lt;leader&gt;yx executes contents of register y.
 
 You can use the 'bound\_prefices x' command to print contents of register x (convenient for small scripting).
 
