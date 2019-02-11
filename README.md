@@ -43,7 +43,7 @@ You can use the 'bound\_dir x' command to print contents of register x (convenie
 Commandline register set is bound to 'p'. Setting a register from that set sets it to current commandline contents. This set provides additional bindings:
 - &lt;leader&gt;ya inserts saved contents at current cursor position, moving the cursor to the end of inserted content.
 - &lt;leader&gt;yz toggles 'prefix mode' on and off. In prefix mode, contents of register 'y' (as of time of toggle) will be prepended to commandline at every new prompt. Very convenient for commands like git!
-- &lt;leader&gt;yx executes contents of register y.
+- &lt;leader&gt;yx replaces your current commandline contents with contents of registry y, then runs them.
 
 You can use the 'bound\_prefices x' command to print contents of register x (convenient for small scripting).
 
@@ -64,9 +64,14 @@ Sequence &lt;leader&gt;&lt;leader&gt;p toggles ping mode. In ping mode, any comm
 
 Sequence &lt;leader&gt;&lt;leader&gt;e, given that cursor is at the start or right after end of `(command)`, substitutes `(command)` with output of `command`.
 
+
 ### Other
 
 Sequence &lt;leader&gt;&lt;leader&gt;h calls history --merge. Convenient when working with fish in pultiple tabs.
+
+## Security
+
+Register sets are just universal environment variables, so anything running as your user can modify them. It's especially a concern when using key sequences that execute register contents - DON'T use these if you don't trust your environment.
 
 # License
 
