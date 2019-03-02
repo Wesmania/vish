@@ -14,6 +14,8 @@ A handful of conveniences for anyone using Fish extensively, with some vim-like 
 
 You'll need oh-my-fish. Copy this repo to ~/.config/omf/pkg. TODO: add this to omf as a package.
 
+## Features
+
 ### Leader key
 
 By default, vish uses an "\e\'" escape sequence as a leader key. TODO: make it configurable. I suggest binding the sequence in your terminal to any key you don't otherwise use (like pause, or some numeric keyboard key). My keyboard has a very handy superfluous key next to 'z' which I use as a leader.
@@ -63,7 +65,14 @@ Sequence &lt;leader&gt;&lt;leader&gt;e, given that cursor is at the start or rig
 
 ### Other
 
-Sequence &lt;leader&gt;&lt;leader&gt;h calls history --merge. Convenient when working with fish in pultiple tabs.
+Sequence &lt;leader&gt;&lt;leader&gt;h calls history --merge. Convenient when working with fish in multiple tabs.
+
+You can use `_vish_status_mark` in `fish_mode_prompt` to display vish shortcut modes:
+```
+function fish_mode_prompt
+	_vish_status_mark $fish_bind_mode
+end
+```
 
 ## Security
 
@@ -71,12 +80,4 @@ Register sets are just universal environment variables, so anything running as y
 
 # License
 
-[MIT][mit] © [Igor Kotrasinski][author] et [al][contributors]
-
-
-[mit]:            https://opensource.org/licenses/MIT
-[author]:         https://github.com/{{USER}}
-[contributors]:   https://github.com/{{USER}}/plugin-vish/graphs/contributors
-[omf-link]:       https://www.github.com/oh-my-fish/oh-my-fish
-
-[license-badge]:  https://img.shields.io/badge/license-MIT-007EC7.svg?style=flat-square
+[MIT][mit] © [Igor Kotrasinski][author]
