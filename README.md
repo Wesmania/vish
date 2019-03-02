@@ -18,7 +18,7 @@ You'll need oh-my-fish. Copy this repo to ~/.config/omf/pkg. TODO: add this to o
 
 ### Leader key
 
-By default, vish uses an "\e\'" escape sequence as a leader key. TODO: make it configurable. I suggest binding the sequence in your terminal to any key you don't otherwise use (like pause, or some numeric keyboard key). My keyboard has a very handy superfluous key next to 'z' which I use as a leader.
+By default, vish uses an `\e'` escape sequence as a leader key. TODO: make it configurable. I suggest binding the sequence in your terminal to any key you don't otherwise use (like pause, or some numeric keyboard key). My keyboard has a very handy superfluous key next to 'z' which I use as a leader.
 
 ### Registers
 
@@ -74,10 +74,8 @@ function fish_mode_prompt
 end
 ```
 
+To toggle e.g. showing git branch at shell start time, add `_vish_prompt_toggle GIT_BRANCH` to your config.fish. TODO - document other toggles.
+
 ## Security
 
 Register sets are just universal environment variables, so anything running as your user can modify them. It's especially a concern when using key sequences that execute register contents - DON'T use these if you don't trust your environment.
-
-# License
-
-[MIT][mit] © [Igor Kotrasinski][author]
