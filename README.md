@@ -10,17 +10,13 @@ A handful of conveniences for anyone using Fish extensively, with some vim-like 
 
 [![MIT License](https://img.shields.io/badge/license-MIT-007EC7.svg?style=flat-square)](/LICENSE)
 
-## Install
+## Installation
 
-```fish
-$ omf install vish
-```
-
-## Usage
+You'll need oh-my-fish. Copy this repo to ~/.config/omf/pkg. TODO: add this to omf as a package.
 
 ### Leader key
 
-By default, vish uses an "\e\'" escape sequence as a leader key. TODO: make it configurable. I suggest binding the sequence in your terminal to any key you don't otherwise use (like pause). My keyboard has a very handy superfluous key next to 'z' which I use as a leader.
+By default, vish uses an "\e\'" escape sequence as a leader key. TODO: make it configurable. I suggest binding the sequence in your terminal to any key you don't otherwise use (like pause, or some numeric keyboard key). My keyboard has a very handy superfluous key next to 'z' which I use as a leader.
 
 ### Registers
 
