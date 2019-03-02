@@ -1,6 +1,6 @@
 function _vish_prompt_path
 	set -l home_escaped (echo -n $HOME | sed 's/\//\\\\\//g')
-	set -l pwd (echo -n $PWD | sed "s/^$home_escaped/~/" | sed 's/ /%20/g')
+	set -l pwd (echo -n $PWD | sed "s/^$home_escaped/~/")
 	set -l short_path ""
 	if _vish_prompt_set SHORT_PATH
 		if set -q VISH_PROMPT_SHORT_PATH_MAX_LENGTH
