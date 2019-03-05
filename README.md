@@ -50,7 +50,7 @@ Vish provides a few bindings out-of-the-box.
 
 ### Directory set
 
-Directory register set is bound to 'm' (similar to 'm' mark in vim). Setting a register from that set sets it to (pwd). The set has extra bindings:
+Directory register set is bound to 'm' (similar to 'm' mark in vim). Setting a register from that set sets it to `(pwd)`. The set has extra bindings:
 
 * `<leader>yg` will change directory to one under register `y`.
 
@@ -59,9 +59,9 @@ You can use the `bound_dir x` command to print contents of register x (convenien
 ### Commandline set
 
 Commandline register set is bound to 'p'. Setting a register from that set sets it to current commandline contents. The set has extra bindings:
-* <leader>xa inserts contents of register x at current cursor position, moving the cursor to the end of inserted text.
-* <leader>xz toggles 'prefix mode' on and off. In prefix mode, contents of register `x` will be prepended to commandline at every new prompt. Very convenient for commands like git!
-* <leader>xx replaces your current commandline contents with contents of register x, then runs them.
+* `<leader>xa` inserts contents of register x at current cursor position, moving the cursor to the end of inserted text.
+* `<leader>xz` toggles 'prefix mode' on and off. In prefix mode, contents of register `x` will be prepended to commandline at every new prompt. Very convenient for commands like git!
+* `<leader>xx` replaces your current commandline contents with contents of register x, then runs them.
 
 You can use the `bound_prefices x` command to print contents of register x (convenient for small scripting).
 
@@ -69,7 +69,7 @@ You can use the `bound_prefices x` command to print contents of register x (conv
 
 Vish has a handful of prompt functions to compose your prompt with and which react to register-less shortcuts. These are:
 - `_vish_prompt_path` - current directory. Can be shortened to last `$VISH_PROMPT_SHORT_PATH_MAX_LENGTH` characters with `<leader><leader>s`.
-- `_vish_right_prompt_git_branch` - current git branch. Can be toggled on / off with <leader><leader>g.
+- `_vish_right_prompt_git_branch` - current git branch. Can be toggled on / off with `<leader><leader>g`.
 - `_vish_right_prompt_states` - Vish state indicators. Currently indicate presence of background jobs and ping mode.
 - `_vish_right_prompt_status` - Last command status.
 - `_vish_status_mark` - emit a character depending on vish mode. To be used in `fish_mode_prompt`.
