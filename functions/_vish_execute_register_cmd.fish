@@ -1,5 +1,5 @@
 function _vish_execute_register_cmd -a key
-	set -l idx (_vish_reg2idx $key)
-	commandline -r $_VISH_BOUND_PREFICES[$idx]
+	set -l cmd (_vish_register_get $key PREFICES) ; or return
+	commandline -r $cmd
 	commandline -f execute
 end

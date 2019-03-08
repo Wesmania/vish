@@ -7,8 +7,8 @@ for mode in vishcmd vishregister vishregcmd
 end
 
 bind \' -M vishcmd -m vishregister force-repaint
-for reg in (_vish_registers)
-	bind -M vishregister -m vishregcmd -- $reg "set -g _VISH_LAST_REGISTER $reg ; commandline -f repaint"
+for reg in (_vish_registers) '*' '+'
+	bind -M vishregister -m vishregcmd -- $reg "set -g _VISH_LAST_REGISTER \"$reg\" ; commandline -f repaint"
 end
 
 _vish_make_regset m DIRS

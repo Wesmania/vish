@@ -1,6 +1,6 @@
 function _vish_append_cmd_prefix -a key
-	set -l idx (_vish_reg2idx $key)
+	set -l prefix (_vish_register_get $key PREFICES) ; or return
 	set -l cursor (commandline -C)
-	commandline -i $_VISH_BOUND_PREFICES[$idx]
-	commandline -C (math $cursor + (echo $_VISH_BOUND_PREFICES[$idx] | wc -c))
+	commandline -i $prefix
+	commandline -C (math $cursor + (echo $prefix | wc -c))
 end

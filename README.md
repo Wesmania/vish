@@ -28,12 +28,16 @@ Vish provides several sets of "registers" under a-z. Each register set is bound 
 
 Additional key bindings that use the register set can be defined. For example a register set `x` can define a binding for a key `z`. Pressing `<leader>yz` will then perform some action for a register `y` in that set.
 
+### Special registers
+
+Apart from register sets, there are 2 registers under `*` and `+` that behave exactly like vim's selection registers, provided that you have the `xsel` command. These registers are shared between all register sets, can be used for all commands using them and respond to register set and clear commands.
+
 ### Defining registers
 
 Registers are defined with universal variables, and are actually just arrays 26 items long. Vish provides a set of helper functions for defining your own register sets and functions that operate on them. These are:
 * `_vish_make_regset letter name` - create a register set under `letter` named `name`. The register set will be kept in a `$_VISH_BOUND_${name}` universal variable.
-* `_vish_bind_registers letter fn` - bind command `fn` under letter `letter`. The command should accept a single argument that's the register used. If you want to get register contents, look them up in the corresponding universal variable.
-* `_vish_reg2idx` - convenience function. Turns a register letter into an index into the `$_VISH_BOUND_${name}` array.
+* `_vish_bind_registers letter fn` - bind command `fn` under letter `letter`. The command should accept a single argument that's the register used.
+* `_vish_register_get` - given a key and a register set name, writes register contents on stdout, either from a register set or a special register. Returns 1 if register is unset or invalid.
 
 When setting a register, `_vish_source_of_${name}` is called, with `${name}` turned lowercase. This function takes no arguments and should return the string to put into the register.
 
@@ -50,7 +54,7 @@ Vish provides a few bindings out-of-the-box.
 
 ### Directory set
 
-Directory register set is bound to 'm' (similar to 'm' mark in vim). Setting a register from that set sets it to `(pwd)`. The set has extra bindings:
+Directory register set is bound to 'm' (similar to 'm' mark in vim). Setting a register from that set sets it to `(pwd)`. The name of this set is DIRS. The set has extra bindings:
 
 * `<leader>yg` will change directory to one under register `y`.
 
@@ -58,7 +62,7 @@ You can use the `bound_dir x` command to print contents of register x (convenien
 
 ### Commandline set
 
-Commandline register set is bound to 'p'. Setting a register from that set sets it to current commandline contents. The set has extra bindings:
+Commandline register set is bound to 'p'. Setting a register from that set sets it to current commandline contents. The name of this set is PREFICES. The set has extra bindings:
 * `<leader>xa` inserts contents of register x at current cursor position, moving the cursor to the end of inserted text.
 * `<leader>xz` toggles 'prefix mode' on and off. In prefix mode, contents of register `x` will be prepended to commandline at every new prompt. Very convenient for commands like git!
 * `<leader>xx` replaces your current commandline contents with contents of register x, then runs them.
