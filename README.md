@@ -15,6 +15,10 @@ A handful of conveniences for anyone using Fish extensively, with some vim-like 
 
 You'll need oh-my-fish. Copy this repo to ~/.config/omf/pkg. TODO: add this to omf as a package.
 
+## Demo
+
+![Demo Animation](../readme/demo.gif?raw=true)
+
 ## Core features
 
 Vish leverages fish's modal key binding mechanism to provide vim-style leader-prefixed shortcuts. All vish commands start with a leader key - at the moment it's hardcoded to be an `\e'` escape sequence, so you can bind it to any free key in your favourite terminal emulator.
