@@ -10,6 +10,6 @@ function _vish_register_set_to -a name -a key -a value
 			if not set -q $regs
 				return 1
 			end
-			set -Ux $regs[1][(_vish_reg2idx $key)] $value
+			set -U $regs[1][(_vish_reg2idx $key)] $value
 	end
 end
