@@ -13,7 +13,11 @@ A handful of conveniences for anyone using Fish extensively, with some vim-like 
 
 ## Installation
 
-You'll need oh-my-fish. Copy this repo to ~/.config/omf/pkg. TODO: add this to omf as a package.
+Vish is available as a package in [oh-my-fish](https://github.com/oh-my-fish/oh-my-fish). Once you have oh-my-fish set up, just run:
+
+```
+omf install vish
+```
 
 ## Demo
 
