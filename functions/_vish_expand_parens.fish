@@ -6,5 +6,5 @@ function _vish_expand_parens
 
 	set -l toexpand (echo -n $token | head -c -1 | tail -c+2)
 	set -l expandedtoken (eval $toexpand)
-	commandline -rt $expandedtoken
+	commandline -rt -- $expandedtoken
 end
