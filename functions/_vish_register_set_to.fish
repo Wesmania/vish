@@ -5,6 +5,9 @@ function _vish_register_set_to -a name -a key -a value
 			set -l stype ''
 			[ "$key" = "+" ] ; and set stype '-b'; or set stype '-p'
 			echo -n $value | xsel $stype -i 2>/dev/null
+		case '0'
+			set -q _VISH_TEMP_REGISTER ; or return 1
+			set -U _VISH_TEMP_REGISTER $value
 		case '*'
 			set -l regs _VISH_BOUND_$name
 			if not set -q $regs

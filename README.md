@@ -40,6 +40,8 @@ Additional key bindings that use the register set can be defined. For example a 
 
 Apart from register sets, there are 2 registers under `*` and `+` that behave exactly like vim's selection registers, provided that you have the `xsel` command. These registers are shared between all register sets, can be used for all commands using them and respond to register set and clear commands.
 
+Additionally, there's a temporary register intended to work like vim's "0" register. It's implicitly used by some commands, shared by all register sets and can be accessed under "0".
+
 ### Defining registers
 
 Registers are defined with universal variables, and are actually just arrays 26 items long. Vish provides a set of helper functions for defining your own register sets and functions that operate on them. These are:
@@ -98,7 +100,8 @@ Sequence `<leader><leader>e`, given that cursor is at the start or right after e
 
 ### Other
 
-Sequence `<leader><leader>h` calls history --merge. Convenient when working with fish in multiple tabs.
+- Sequence `<leader><leader>h` calls history --merge. Convenient when working with fish in multiple tabs.
+- Sequence `<leader><leader>r` saves current commandline contents to register 0 if commandline is not empty, otherwise it restores commandline contents from register 0. Very handy for saving a partially typed command if you need to run something else first.
 
 ## Security
 

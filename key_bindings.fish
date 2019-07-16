@@ -7,9 +7,11 @@ for mode in vishcmd vishregister vishregcmd
 end
 
 bind \' -M vishcmd -m vishregister force-repaint
-for reg in (_vish_registers) '*' '+'
+for reg in (_vish_registers) '*' '+' '0'
 	bind -M vishregister -m vishregcmd -- $reg "set -g _VISH_LAST_REGISTER \"$reg\" ; commandline -f repaint"
 end
+
+set -U _VISH_TEMP_REGISTER ""
 
 _vish_make_regset m DIRS
 _vish_bind_registers g _vish_cd_bound_dir
@@ -24,3 +26,4 @@ _vish_bind s "_vish_prompt_toggle SHORT_PATH"
 _vish_bind i "_vish_prompt_toggle PING"
 _vish_bind h "history --merge"
 _vish_bind e "_vish_expand_parens"
+_vish_bind r "_vish_save_cmdline"

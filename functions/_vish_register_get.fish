@@ -7,6 +7,9 @@ function _vish_register_get -a key -a name
 			set -l stype '-p'
 			[ "$key" = '+' ] ; and set stype '-b'; or set stype '-p'
 			set ret (xsel $stype 2>/dev/null)
+		case '0'
+			set -q _VISH_TEMP_REGISTER ; or return 1
+			set ret $_VISH_TEMP_REGISTER
 		case '*'
 			[ "$name" != "" ] ; or return 1
 			set -q _VISH_BOUND_$name ; or return 1
