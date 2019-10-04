@@ -25,7 +25,7 @@ omf install vish
 
 ## Core features
 
-Vish leverages fish's modal key binding mechanism to provide vim-style leader-prefixed shortcuts. All vish commands start with a leader key - at the moment it's hardcoded to be an `\e'` escape sequence, so you can bind it to any free key in your favourite terminal emulator.
+Vish leverages fish's modal key binding mechanism to provide vim-style leader-prefixed shortcuts. All vish commands start with a leader key - by default an `\e'` sequence, overridable by contents of a `_VISH_ESCAPE` variable.
 
 ### Registers
 

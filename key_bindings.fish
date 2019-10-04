@@ -1,6 +1,11 @@
-bind \e\' -m vishregister force-repaint
-bind \e\' -M vishregister -m vishcmd force-repaint
-bind \e\' -M vishcmd -m default force-repaint
+set -l _vish_esc \e\'
+if set -q _VISH_ESCAPE
+	set _vish_esc $_VISH_ESCAPE
+end
+
+bind $_vish_esc -m vishregister force-repaint
+bind $_vish_esc -M vishregister -m vishcmd force-repaint
+bind $_vish_esc -M vishcmd -m default force-repaint
 
 for mode in vishcmd vishregister vishregcmd
 	bind \e -M $mode -m default "commandline -f repaint"
