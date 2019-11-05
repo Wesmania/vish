@@ -42,11 +42,14 @@ Apart from register sets, there are 2 registers under `*` and `+` that behave ex
 
 Additionally, there's a temporary register intended to work like vim's "0" register. It's implicitly used by some commands, shared by all register sets and can be accessed under "0".
 
+If you have a command that can accept a number, you can bind it to use numbers from 1 to 9 as registers.
+
 ### Defining registers
 
 Registers are defined with universal variables, and are actually just arrays 26 items long. Vish provides a set of helper functions for defining your own register sets and functions that operate on them. These are:
 * `_vish_make_regset letter name` - create a register set under `letter` named `name`. The register set will be kept in a `$_VISH_BOUND_${name}` universal variable.
 * `_vish_bind_registers letter fn` - bind command `fn` under letter `letter`. The command should accept a single argument that's the register used.
+* `_vish_bind_numbers letter fn` - bind command `fn` under letter `letter`, accepting numbers from 1 to 9 instead of letter registers.
 * `_vish_register_get` - given a key and a register set name, writes register contents on stdout, either from a register set or a special register. Returns 1 if register is unset or invalid.
 
 When setting a register, `_vish_source_of_${name}` is called, with `${name}` turned lowercase. This function takes no arguments and should return the string to put into the register.

@@ -7,13 +7,17 @@ bind $_vish_esc -m vishregister force-repaint
 bind $_vish_esc -M vishregister -m vishcmd force-repaint
 bind $_vish_esc -M vishcmd -m default force-repaint
 
-for mode in vishcmd vishregister vishregcmd
+for mode in vishcmd vishregister vishregcmd vishregnumcmd
 	bind \e -M $mode -m default "commandline -f repaint"
 end
 
 bind \' -M vishcmd -m vishregister force-repaint
+
 for reg in (_vish_registers) '*' '+' '0'
 	bind -M vishregister -m vishregcmd -- $reg "set -g _VISH_LAST_REGISTER \"$reg\" ; commandline -f repaint"
+end
+for num in (seq 1 9)
+	bind -M vishregister -m vishregnumcmd -- $num "set -g _VISH_LAST_REGISTER \"$num\" ; commandline -f repaint"
 end
 
 set -U _VISH_TEMP_REGISTER ""
