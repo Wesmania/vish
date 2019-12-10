@@ -44,26 +44,13 @@ Additionally, there's a temporary register intended to work like vim's "0" regis
 
 If you have a command that can accept a number, you can bind it to use numbers from 1 to 9 as registers.
 
-### Defining registers
-
-Registers are defined with universal variables, and are actually just arrays 26 items long. Vish provides a set of helper functions for defining your own register sets and functions that operate on them. These are:
-* `_vish_make_regset letter name` - create a register set under `letter` named `name`. The register set will be kept in a `$_VISH_BOUND_${name}` universal variable.
-* `_vish_bind_registers letter fn` - bind command `fn` under letter `letter`. The command should accept a single argument that's the register used.
-* `_vish_bind_numbers letter fn` - bind command `fn` under letter `letter`, accepting numbers from 1 to 9 instead of letter registers.
-* `_vish_register_get` - given a key and a register set name, writes register contents on stdout, either from a register set or a special register. Returns 1 if register is unset or invalid.
-
-When setting a register, `_vish_source_of_${name}` is called, with `${name}` turned lowercase. This function takes no arguments and should return the string to put into the register.
-
-You should create register sets and bind shortcuts in your `fish_user_key_bindings` function.
-
 ### Register-less shortcuts
 
-Shortcuts that don't use registers are bound to `<leader><leader><key>` sequences. You can use the following functions to bind a shortcut:
-* `_vish_bind letter command` - bind command to a `<leader><leader><letter>` sequence. Commands are `bind`-style strings - you can e.g. write `_vish_bind a "foo bar; echo baz"` and it will work as expected.
+Shortcuts that don't use registers are bound to `<leader><leader><key>` sequences.
 
 ## Default bindings
 
-Vish provides a few bindings out-of-the-box.
+Vish provides a few bindings out-of-the-box. For a quick overview, use `vish_help`.
 
 ### Directory set
 
@@ -105,6 +92,25 @@ Sequence `<leader><leader>e`, given that cursor is at the start or right after e
 
 - Sequence `<leader><leader>h` calls history --merge. Convenient when working with fish in multiple tabs.
 - Sequence `<leader><leader>r` saves current commandline contents to register 0 if commandline is not empty, otherwise it restores commandline contents from register 0. Very handy for saving a partially typed command if you need to run something else first.
+
+## Custom bindings
+
+### Defining registers
+
+Registers are defined with universal variables, and are actually just arrays 26 items long. Vish provides a set of helper functions for defining your own register sets and binding commands:
+* `_vish_make_regset letter name` - create a register set under `letter` named `name`. The register set will be kept in a `$_VISH_BOUND_${name}` universal variable.
+* `_vish_bind_registers letter fn` - bind command `fn` under letter `letter`. The command should accept a single argument that's the register used.
+* `_vish_bind_numbers letter fn` - bind command `fn` under letter `letter`, accepting numbers from 1 to 9 instead of letter registers.
+* `_vish_bind letter command` - bind command to a `<leader><leader><letter>` sequence. Commands are `bind`-style strings - you can e.g. write `_vish_bind a "foo bar; echo baz"` and it will work as expected.
+
+Each of these functions accepts a `--doc` flag with an argument that will be displayed when calling `fish_help`.
+
+There are also some utility functions available:
+* `_vish_register_get key name` - given a key and a register set name, writes register contents on stdout, either from a register set or a special register. Returns 1 if register is unset or invalid.
+
+When setting a register, `_vish_source_of_${name}` is called, with `${name}` turned lowercase. This function takes no arguments and should return the string to put into the register. 
+
+You should create register sets and bind shortcuts in your `fish_user_key_bindings` function.
 
 ## Security
 

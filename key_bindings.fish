@@ -22,17 +22,17 @@ end
 
 set -U _VISH_TEMP_REGISTER ""
 
-_vish_make_regset m DIRS
-_vish_bind_registers g _vish_cd_bound_dir
+_vish_make_regset m DIRS --doc "Directories. Binds current directory."
+_vish_bind_registers g _vish_cd_bound_dir --doc "Go to saved directory."
 
-_vish_make_regset p PREFICES
-_vish_bind_registers z _vish_toggle_cmd_prefix
-_vish_bind_registers a _vish_append_cmd_prefix
-_vish_bind_registers x _vish_execute_register_cmd
+_vish_make_regset p PREFICES --doc "Commandline contents. Binds current contents."
+_vish_bind_registers z _vish_toggle_cmd_prefix --doc "Toggle prepending commandline with saved commandline contents."
+_vish_bind_registers a _vish_append_cmd_prefix --doc "Append saved commandline contents at cursor."
+_vish_bind_registers x _vish_execute_register_cmd --doc "Execute saved commandline contents."
 
-_vish_bind g "_vish_prompt_toggle GIT_BRANCH"
-_vish_bind s "_vish_prompt_toggle SHORT_PATH"
-_vish_bind i "_vish_prompt_toggle PING"
-_vish_bind h "history --merge"
-_vish_bind e "_vish_expand_parens"
-_vish_bind r "_vish_save_cmdline"
+_vish_bind g "_vish_prompt_toggle GIT_BRANCH" --doc "Toggle git branch display."
+_vish_bind s "_vish_prompt_toggle SHORT_PATH" --doc "Toggle short directory paths."
+_vish_bind i "_vish_prompt_toggle PING" --doc "Toggle ping."
+_vish_bind h "history --merge" --doc "Merge fish history."
+_vish_bind e "_vish_expand_parens" --doc "Expand parenthesized command under cursor."
+_vish_bind r "_vish_save_cmdline" --doc "Save current commandline to register 0."
