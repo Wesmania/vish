@@ -4,7 +4,7 @@ function __vish_help_printregs
 		if not test -n "$$rs[1][$i]"
 			continue
 		end
-		printf "\\x"(printf %x (math 96 + $i))"\t$$rs[1][$i]\n"
+		printf "\\x"(printf "%x" (math 96 + $i))"\t$$rs[1][$i]\n"
 	end
 end
 
