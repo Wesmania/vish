@@ -52,7 +52,9 @@ Shortcuts that don't use registers are bound to `<leader><leader><key>` sequence
 
 Vish provides a few bindings out-of-the-box. For a quick overview, use `vish_help`.
 
-### Directory set
+You can control which bindings are enabled by changing the `$VISH_FEATURES` array. By default the array is set to `dirs prefices prompt misc`. If you change it, make sure to set it **before** sourcing oh-my-fish init files.
+
+### Directory set (dirs)
 
 Directory register set is bound to 'm' (similar to 'm' mark in vim). Setting a register from that set sets it to `(pwd)`. The name of this set is DIRS. The set has extra bindings:
 
@@ -60,7 +62,7 @@ Directory register set is bound to 'm' (similar to 'm' mark in vim). Setting a r
 
 You can use the `bound_dir x` command to print contents of register x (convenient for small scripting).
 
-### Commandline set
+### Commandline set (prefices)
 
 Commandline register set is bound to 'p'. Setting a register from that set sets it to current commandline contents. The name of this set is PREFICES. The set has extra bindings:
 * `<leader>xa` inserts contents of register x at current cursor position, moving the cursor to the end of inserted text.
@@ -69,29 +71,23 @@ Commandline register set is bound to 'p'. Setting a register from that set sets 
 
 You can use the `bound_prefices x` command to print contents of register x (convenient for small scripting).
 
-### Prompt functions
+### Misc bindings (misc)
+
+- Sequence `<leader><leader>h` calls history --merge. Convenient when working with fish in multiple tabs.
+- Sequence `<leader><leader>r` saves current commandline contents to register 0 if commandline is not empty, otherwise it restores commandline contents from register 0. Very handy for saving a partially typed command if you need to run something else first.
+- Sequence `<leader><leader>i` toggles ping mode. In this mode, any foreground commands that took more than `$VISH_COMMAND_PING_MIN_TIME` seconds (default 10) will call `_vish_ping` once they're done. Implementation of `_vish_ping` is left to the user. Commands that match a regex in `$VISH_INTERACTIVE_CMDS` array won't be pinged.
+- Sequence `<leader><leader>e`, given that cursor is at the start or right after end of `(command)`, substitutes `(command)` with output of `command`.
+
+### Prompt functions (prompt)
 
 Vish has a handful of prompt functions to compose your prompt with and which react to register-less shortcuts. These are:
 - `_vish_prompt_path` - current directory. Can be shortened to last `$VISH_PROMPT_SHORT_PATH_MAX_LENGTH` characters with `<leader><leader>s`.
 - `_vish_right_prompt_git_branch` - current git branch. Can be toggled on / off with `<leader><leader>g`.
-- `_vish_right_prompt_states` - Vish state indicators. Currently indicate presence of background jobs and ping mode.
+- `_vish_right_prompt_states` - Vish state indicators. Indicate presence of background jobs and ping mode.
 - `_vish_right_prompt_status` - Last command status.
 - `_vish_status_mark` - emit a character depending on vish mode. To be used in `fish_mode_prompt`.
 
-You can also toggle the above prompt changes manually (e.g. in your config.fish) - just run the `_vish_prompt_toggle NAME` with name being one of `GIT_BRANCH`, `SHORT_PATH` or `PING`.
-
-### Ping mode
-
-Sequence `<leader><leader>i` toggles ping mode. In ping mode, any commands (not run in background) that run longer than `$VISH_COMMAND_PING_MIN_TIME` seconds (or default 10) will call `_vish_ping` once they are done, if it's defined. Implementation of `_vish_ping` is left to the user. Any command that matches a regex in a `$VISH_INTERACTIVE_CMDS` array will be considered interactive, and won't be pinged.
-
-### Subcommand substitution
-
-Sequence `<leader><leader>e`, given that cursor is at the start or right after end of `(command)`, substitutes `(command)` with output of `command`.
-
-### Other
-
-- Sequence `<leader><leader>h` calls history --merge. Convenient when working with fish in multiple tabs.
-- Sequence `<leader><leader>r` saves current commandline contents to register 0 if commandline is not empty, otherwise it restores commandline contents from register 0. Very handy for saving a partially typed command if you need to run something else first.
+You can toggle the above prompt changes manually (e.g. in your config.fish) - just run the `_vish_prompt_toggle NAME` with name being one of `GIT_BRANCH`, `SHORT_PATH` or `PING`.
 
 ## Custom bindings
 
