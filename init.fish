@@ -11,6 +11,5 @@ end
 
 # FIXME: should I control this with VISH_FEATURES? Someone might want to use
 # these, just with different bindings
-source $path/functions/_vish_mark_time.fish
 source $path/functions/_vish_command_end.fish
 source $path/functions/_vish_cmd_prefix.fish
