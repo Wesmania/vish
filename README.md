@@ -38,7 +38,7 @@ Additional key bindings that use the register set can be defined. For example a 
 
 ### Special registers
 
-Apart from register sets, there are 2 registers under `*` and `+` that behave exactly like vim's selection registers, provided that you have the `xsel` command. These registers are shared between all register sets, can be used for all commands using them and respond to register set and clear commands.
+Apart from register sets, there are 2 registers under `*` and `+` that behave exactly like vim's selection registers, provided that you have the `xsel` command. These registers are shared between all register sets, can be used for all commands using them and respond to register set and clear commands. You can define other such custom registers as well.
 
 Additionally, there's a temporary register intended to work like vim's "0" register. It's implicitly used by some commands, shared by all register sets and can be accessed under "0".
 
@@ -95,6 +95,7 @@ You can toggle the above prompt changes manually (e.g. in your config.fish) - ju
 
 Registers are defined with universal variables, and are actually just arrays 26 items long. Vish provides a set of helper functions for defining your own register sets and binding commands:
 * `_vish_make_regset letter name` - create a register set under `letter` named `name`. The register set will be kept in a `$_VISH_BOUND_${name}` universal variable.
+* `_vish_make_special_register keys fn` - Create a special register under each character in `keys`. To get and set this register, `_vish_special_register_${fn}` will be called, with "get" and key to fetch a value and "set", key and a value to set it. This is used to provide bindings to x11 clipboards, for example.
 * `_vish_bind_registers letter fn` - bind command `fn` under letter `letter`. The command should accept a single argument that's the register used.
 * `_vish_bind_numbers letter fn` - bind command `fn` under letter `letter`, accepting numbers from 1 to 9 instead of letter registers.
 * `_vish_bind letter command` - bind command to a `<leader><leader><letter>` sequence. Commands are `bind`-style strings - you can e.g. write `_vish_bind a "foo bar; echo baz"` and it will work as expected.

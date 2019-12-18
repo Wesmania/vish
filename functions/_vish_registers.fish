@@ -1,5 +1,3 @@
 function _vish_registers
-	for n in (seq 26)
-		echo -e "\x"(echo "obase=16; "(math 96 + $n) | bc)
-	end
+	echo -nes {\\x}(printf "%x\n" (seq 0x61 0x7a)){\n}
 end

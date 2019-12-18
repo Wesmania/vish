@@ -1,18 +1,15 @@
 function _vish_register_set_to -a name -a key -a value
 	switch $key
-		case '+' '\*'
-			command -s xsel > /dev/null ; or return 1
-			set -l stype ''
-			[ "$key" = "+" ] ; and set stype '-b'; or set stype '-p'
-			echo -n $value | xsel $stype -i 2>/dev/null
-		case '0'
-			set -q _VISH_TEMP_REGISTER ; or return 1
-			set -U _VISH_TEMP_REGISTER $value
-		case '*'
+		case (_vish_registers)
 			set -l regs _VISH_BOUND_$name
 			if not set -q $regs
 				return 1
 			end
 			set -U $regs[1][(_vish_reg2idx $key)] $value
+		case '0'
+			set -q _VISH_TEMP_REGISTER ; or return 1
+			set -U _VISH_TEMP_REGISTER $value
+		case '*'
+			_vish_special_registers set $key $value
 	end
 end
