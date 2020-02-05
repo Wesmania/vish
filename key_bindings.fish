@@ -16,7 +16,7 @@ bind \' -M vishcmd -m vishregister force-repaint
 for reg in (_vish_registers) '0'
 	bind -M vishregister -m vishregcmd -- $reg "set -g _VISH_LAST_REGISTER \"$reg\" ; commandline -f repaint"
 end
-for num in (seq 1 9)
+for num in (seq 1 9) (seq -9 -1)
 	bind -M vishregister -m vishregnumcmd -- $num "set -g _VISH_LAST_REGISTER \"$num\" ; commandline -f repaint"
 end
 

@@ -42,7 +42,7 @@ Apart from register sets, there are 2 registers under `*` and `+` that behave ex
 
 Additionally, there's a temporary register intended to work like vim's "0" register. It's implicitly used by some commands, shared by all register sets and can be accessed under "0".
 
-If you have a command that can accept a number, you can bind it to use numbers from 1 to 9 as registers.
+If you have a command that can accept a number, you can bind it to use numbers from 1 to 9 (and, prefixed with '-', from -9 to -1) as registers.
 
 ### Register-less shortcuts
 
