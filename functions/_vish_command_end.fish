@@ -1,7 +1,4 @@
 function _vish_command_end --on-event fish_postexec
-	if not set -q _VISH_INTERACTIVE_COMMAND_START
-		return
-	end
 	if not _vish_prompt_set PING
 		return
 	end
