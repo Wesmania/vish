@@ -45,7 +45,7 @@ Set `_VISH_ESCAPE` to whatever sequence you want your leader (`<L>`) key to be. 
 - `_vish_right_prompt_git_branch` - similar to above. Use in `fish_right_prompt`.
 - `_vish_status_mark` - modal indicator. Use in `fish_mode_prompt`.
 - `_vish_right_prompt_status` - Last command status.
-- `_vish_right_prompt_states` - Some state indicators (backgorund jobs, ping mode).
+- `_vish_right_prompt_states` - Some state indicators (background jobs, ping mode).
 
 ### Misc
 
@@ -97,6 +97,7 @@ function tmux_pane_dir -a num
 	commandline -i (tmux display-message -p -F "#{pane_current_path}" -t $num)
 end
 # Now you can do <L>3da to put (3)rd pane (d)irectory into register 0, then (a)ppend it to your commandline.
+# Or, you can do <L>3d* to copy it to selection clipboard.
 ```
 
 ### Misc example

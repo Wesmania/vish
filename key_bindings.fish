@@ -21,6 +21,8 @@ for num in (seq 1 9) (seq -9 -1)
 end
 
 _vish_make_special_register "+*" xsel --doc "X11 registers. Vim-like."
+_vish_bind_registers "*" '_vish_copy_to_x \'*\'' --doc "Copy register to '*' register. Intended to be used with shared registers, otherwise uses commandline regset."
+_vish_bind_registers "+" '_vish_copy_to_x +' --doc "Copy register to '+' register."
 
 set -U _VISH_TEMP_REGISTER ""
 
