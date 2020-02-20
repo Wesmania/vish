@@ -29,6 +29,7 @@ Set `_VISH_ESCAPE` to whatever sequence you want your leader (`<L>`) key to be. 
 - `*` and `+` are clipboard registers, if you have `xsel`. Try `<L>*m <L>*a`.
 - '0' is also a register, shared between all commands.
 - As are '1-9' and '(-1)-(-9)', see 'custom bindings'.
+- You can add custom registers, too! See examples.
 
 ### Misc bindings
 - `<L><L>h` calls `history --merge`.
@@ -72,7 +73,7 @@ function _compile_foo -a key
 end
 ```
 
-### Odd registers example
+### Custom registers example
 ```
 # Put this in fish_user_key_bindings.
 _vish_make_special_register '][' magic_rest --doc "This register comes from the Internet!"
@@ -86,11 +87,22 @@ function _vish_special_register_magic_rest -a action -a key -a value
 		bar $value
 	end
 end
-
 # Now we can do <L>]g to go to directory echoed by the above.
 
 
 # Put this in fish_user_key_bindings.
+_vish_make_num_param_register d "tmux_pane_dir" --doc "Grab tmux pane directory."
+
+function tmux_pane_dir -a num
+	commandline -i (tmux display-message -p -F "#{pane_current_path}" -t $num)
+end
+# Now you can do <L>3da to put (3)rd pane (d)irectory into register 0, then (a)ppend it to your commandline.
+```
+
+### Misc example
+```
+# Put this in fish_user_key_bindings.
+# Use e.g <L>4l or <L>-6l to call this.
 _vish_bind_numbers l _last_line --doc "Paste last line from terminal."
 
 function _last_line -a num
@@ -98,10 +110,7 @@ function _last_line -a num
 	set last_line (get_that_last_line $num)
 	commandline -a $last_line
 end
-```
 
-### Misc example
-```
 # Put this in fish_user_key_bindings.
 _vish_bind o clear	# Now <L><L>o calls clear.
 ```

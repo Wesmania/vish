@@ -86,6 +86,13 @@ When setting a register, `_vish_source_of_${name}` is called, with `${name}` tur
 
 You should create register sets and bind shortcuts in your `fish_user_key_bindings` function.
 
+### Parametrized registers
+
+You can create special, read-only registers parametrized by a letter or a number. Use these functions for that:
+* `_vish_make_num_param_register key fn`
+* `_vish_make_param_register key fn`
+Once that is done, performing `<leader><foo><key>` will call fn with `foo` as an argument, store its output in register 0, set the active register to register 0 and stay in command selection mode. In other words, you can perform e.g. `<leader>xka` to get a register k parametrized by x, store it in register 0 and append it to commandline.
+
 ## Security
 
 Register sets are just universal environment variables, so anything running as your user can modify them. It's especially a concern when using key sequences that execute register contents - DON'T use these if you don't trust your environment.

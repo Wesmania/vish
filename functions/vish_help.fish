@@ -13,6 +13,12 @@ function vish_help
 	echo "Special registers:"
 	__vish_help_printregs _VISH_DOC_SPECIAL_REGS
 	echo ""
+	echo "Parametrized registers:"
+	__vish_help_printregs _VISH_DOC_PARAM_REGISTERS
+	echo ""
+	echo "Parametrized registers( number):"
+	__vish_help_printregs _VISH_DOC_NUM_PARAM_REGISTERS
+	echo ""
 	echo "Register bindings:"
 	__vish_help_printregs _VISH_DOC_REG_BIND
 	echo ""
