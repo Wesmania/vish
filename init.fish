@@ -5,6 +5,7 @@
 # * $path          package path
 # * $dependencies  package dependencies
 
+# TODO - should I disable everything in non-interactive mode?
 if not set -q VISH_FEATURES
 	set -g VISH_FEATURES dirs prefices prompt misc
 end
