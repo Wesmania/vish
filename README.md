@@ -94,7 +94,7 @@ end
 _vish_make_num_param_register d "tmux_pane_dir" --doc "Grab tmux pane directory."
 
 function tmux_pane_dir -a num
-	commandline -i (tmux display-message -p -F "#{pane_current_path}" -t $num)
+	tmux display-message -p -F "#{pane_current_path}" -t $num
 end
 # Now you can do <L>3da to put (3)rd pane (d)irectory into register 0, then (a)ppend it to your commandline.
 # Or, you can do <L>3d* to copy it to selection clipboard.
