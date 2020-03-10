@@ -26,7 +26,7 @@ Set `_VISH_ESCAPE` to whatever sequence you want your leader (`<L>`) key to be. 
 ### Register sets:
 - `<L>am` to save current directory to register a. `<L>ag` to go to that directory. `<L>a-m` to clear register a. `<L>=m` to list directory registers.
 - `<L>ap` to save current commandline to register a (separate from directory registers). `<L>aa` to append register a to commandline. `<L>ax` to execute contents. `<L>az` to prepend contents at every return to prompt, `<L>az` to turn it off again.
-- `*` and `+` are clipboard registers, if you have `xsel`. Try `<L>*m <L>*a`.
+- `*` and `+` are clipboard registers, if you have `xsel`. Try `<L>*m <L>*a`. They're also mapped to ',' and '.' for less fumbling around with shift.
 - '0' is also a register, shared between all commands.
 - As are '1-9' and '(-1)-(-9)', see 'custom bindings'.
 - You can add custom registers, too! See examples.
