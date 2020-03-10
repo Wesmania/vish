@@ -1,3 +1,13 @@
+0.3
+===
+
+* New: custom special registers. See examples.
+* New: parametrized registers. See examples.
+* Some tmux snippets.
+* Map clipboard registers to ',' and '.' for shift-less action.
+* Nicer README with more examples.
+* Bugfixes.
+
 0.2
 ===
 
