@@ -17,7 +17,7 @@ function _vish_last_line -a key
     set -l area before
     set -l reverse
 
-    if [ "$key -lt 0" ] > /dev/null
+    if [ $key -lt 0 ] > /dev/null
         set reverse cat
     else
         set reverse tac
