@@ -17,13 +17,15 @@ function _vish_last_line -a key
     set -l area before
     set -l reverse
 
-    if math "$key < 0" > /dev/null
+    if [ "$key -lt 0" ] > /dev/null
         set reverse cat
     else
         set reverse tac
     end
 
-    set key (math "if ($key < 0) { -($key) } else { $key }")
+    if [ "$key" -lt 0 ]
+        set key (math "-$key")
+    end
     tmux capture-pane -p | tac | while read line
         # Grab last non-empty area around 2 prompts
         if echo $line | grep (echo -n -e $PROMPT_MAGIC_CHAR) > /dev/null
@@ -45,7 +47,7 @@ function _vish_last_line -a key
         if [ "$line" = "" ]
             continue
         end
-        if math "$i == $key" > /dev/null
+        if [ $i -eq $key ] > /dev/null
             string escape -- $line
             return
         end
