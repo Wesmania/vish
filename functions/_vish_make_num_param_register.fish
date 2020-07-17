@@ -1,5 +1,5 @@
 function _vish_make_num_param_register -a key -a fn
-	argparse 'd-doc' -- $argv
+	argparse 'd-doc=' -- $argv
 	__vish_doc _VISH_DOC_NUM_PARAM_REGISTERS $key $_flag_doc
 
 	bind -M vishregnumcmd -m vishregcmd -- $key \
