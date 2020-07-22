@@ -11,5 +11,7 @@ function vish_tmux -a letter
 			tmux resize-pane -Z
 		case d
 			tmux display-panes
+		case t
+			_vish_tmux_complete
 	end
 end
