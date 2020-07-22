@@ -11,8 +11,6 @@ for mode in vishcmd vishregister vishregcmd vishregnumcmd
 	bind \e -M $mode -m default "commandline -f repaint"
 end
 
-bind \' -M vishcmd -m vishregister force-repaint
-
 for reg in (_vish_registers) '0'
 	bind -M vishregister -m vishregcmd -- $reg "set -g _VISH_LAST_REGISTER \"$reg\" ; commandline -f repaint"
 end
