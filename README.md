@@ -118,8 +118,4 @@ _vish_bind o clear	# Now <L><L>o calls clear.
 
 ### Snippets
 
-Anything I use that probably shouldn't be added by default lands in the snippets directory. Feel free to copy & tweak these, or add your own snippets to this repo.
-
-## More docs
-
-Any boring details and half-baked docs can be found in docs.md.
+Anything I use that probably shouldn't be added by default lands in the snippets directory. Feel free to copy & tweak these, or add your own snippets.
