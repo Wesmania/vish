@@ -16,7 +16,7 @@ function vish_help
 	echo "Parametrized registers:"
 	__vish_help_printregs _VISH_DOC_PARAM_REGISTERS
 	echo ""
-	echo "Parametrized registers( number):"
+	echo "Parametrized registers (number):"
 	__vish_help_printregs _VISH_DOC_NUM_PARAM_REGISTERS
 	echo ""
 	echo "Register bindings:"
