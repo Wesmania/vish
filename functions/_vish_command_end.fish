@@ -3,7 +3,7 @@ function _vish_command_end --on-event fish_postexec
 		return
 	end
 	for icmd in $VISH_INTERACTIVE_CMDS
-		if echo $argv[1] | grep $icmd > /dev/null ^ /dev/null
+		if echo $argv[1] | grep $icmd > /dev/null 2> /dev/null
 			return
 		end
 	end
