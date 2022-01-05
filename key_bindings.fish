@@ -49,3 +49,9 @@ if contains misc $VISH_FEATURES
 	_vish_bind e "_vish_expand_parens" --doc "Expand parenthesized command under cursor."
 	_vish_bind r "_vish_save_cmdline" --doc "Save current commandline to register 0."
 end
+
+if contains tmux $VISH_FEATURES
+	_vish_make_num_param_register l "_vish_tmux_last_line" --doc "Grab nth line from last command invocation."
+	_vish_bind_registers t "_vish_tmux" --doc "Various vish bindings for tmux - (v)split, (h)split, resi(z)e, (d)isplay, comple(t)e."
+	_vish_make_num_param_register g "_vish_tmux_pane_dir" --doc "Grab path from i-th pane."
+end

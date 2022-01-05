@@ -52,6 +52,15 @@ Set `_VISH_ESCAPE` to whatever sequence you want your leader (`<L>`) key to be. 
 - Define `_vish_ping` to make long-running commands (more than `$VISH_COMMAND_PING_MIN_TIME`) ping you after completion. Anything matching a regex in `$VISH_INTERACTIVE_CMDS` won't ping.
 - Disable default features by setting `$VISH_FEATURES` array. By default it's `dirs prefices prompt misc`, look at `key_bindings.fish` and disable what you please.
 
+### Tmux bindings
+
+Add 'tmux' to the `$VISH_FEATURES` array to enable tmux-specific bindings.
+- `<L>t<x>` for various tmux shortcuts, see `vish_help`. In particular `<L>tt` autocompletes word under cursor, searching in current pane.
+- `<L><N>l` to copy lines from last command's output to register 0. To use this, add some unique character to your prompt, then set `$_VISH_PROMPT_MAGIC_CHAR` to that character. For example:
+  - `<L>-1la` to copy first line from the bottom to prompt.
+  - `<L>3l+` to copy third line from the top to clipboard.
+- `<L><N>g` to copy current directory from pane N to register 0. For pane 0, use -1.
+
 ## Custom bindings
 
 ### Register set example
