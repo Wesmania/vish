@@ -46,8 +46,6 @@ end
 
 if contains misc $VISH_FEATURES
 	_vish_bind h "history --merge" --doc "Merge fish history."
-	_vish_bind e "_vish_expand_parens" --doc "Expand parenthesized command under cursor."
-	_vish_bind r "_vish_save_cmdline" --doc "Save current commandline to register 0."
 end
 
 if contains tmux $VISH_FEATURES
