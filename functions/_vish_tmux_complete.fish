@@ -18,14 +18,19 @@ function _vish_tmux_complete
 	set -l start_pattern "\(^\|[^$boundary]\)"$word"[$boundary]*"
 	set -l mid_pattern "[$boundary]*"$word"[$boundary]*"
 
-	for pattern in $start_pattern $mid_pattern
-		# Don't match the line the cursor is at, otherwise fish completion hints mess with tmux completion.
-		set -l endline (math (tmux display-message -p '#{cursor_y}') - 1)
-		set -l replacement (tmux capture-pane -Jp -E $endline | grep -o $pattern | tail -n 1)
-		# Fix start pattern grabbing the first non-word character
-		set replacement (echo $replacement | grep -o $mid_pattern)
-		if count $replacement > /dev/null
-			commandline -rt $replacement
+	# List panes, with active one first.
+	set -l panes (tmux list-panes -F '#{?pane_active,A,N} #{pane_index}' | sort | cut -f2 -d " ")
+
+	for pane in $panes
+		for pattern in $start_pattern $mid_pattern
+			# Don't match the line the cursor is at, otherwise fish completion hints mess with tmux completion.
+			set -l endline (math (tmux display-message -p '#{cursor_y}') - 1)
+			set -l replacement (tmux capture-pane -t $pane -Jp -E $endline | grep -o $pattern | tail -n 1)
+			# Fix start pattern grabbing the first non-word character
+			set replacement (echo $replacement | grep -o $mid_pattern)
+			if count $replacement > /dev/null
+				commandline -rt $replacement
+			end
 		end
 	end
 end
