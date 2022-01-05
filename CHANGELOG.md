@@ -1,3 +1,9 @@
+0.4
+===
+
+* Improve README.
+* Remove `<L><L>e` and `<L><L>r`, they're useless.
+
 0.3
 ===
 
