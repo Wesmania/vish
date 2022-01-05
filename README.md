@@ -45,7 +45,7 @@ Vish defines registers from a to z, plus some special registers. Unlike vim, the
 * `*` and `+` are equivalents of vim clipboard registers. For convenience they're also mapped under `,` and `.`, respectively.
 * Additionally, `<L>a*` and `<L>a+` bindings copy register 'a' to the clipboard register.
 
-Each register set is bound to a letter. For a set bound to a letter `<x>`, '<L>a<x>' sets register a, `<L>a-<x>` clears it and `<L>=<x>` lists all letters in a set.
+Each register set is bound to a letter. For a set bound to a letter `<x>`, `<L>a<x>` sets register a, `<L>a-<x>` clears it and `<L>=<x>` lists all letters in a set.
 
 ### Feature: directories
 
@@ -75,6 +75,7 @@ Enabled by `prompt` in `VISH_FEATURES`.
 
 For `fish_prompt`:
 - `_vish_prompt_path` prints current directory in short or long format. `<L><L>s` toggles the format.
+
 For `fish_right_prompt`:
 - `_vish_right_prompt_git_branch` prints current git branch. `<L><L>g` toogles it on or off.
 - `_vish_right_prompt_status` prints return code of last command.
