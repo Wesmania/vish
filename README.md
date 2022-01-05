@@ -101,6 +101,6 @@ Enabled by `tmux` in `VISH_FEATURES`.
 
 - `vish_help` - list all bindings.
 
-## Custom bindings
+## Custom bindings and scripting
 
-It's possible to define your own registers and bindings. For details, see `custom.md`.
+It's possible to define your own registers and bindings and do some limited scripting. For details, see `custom.md`.

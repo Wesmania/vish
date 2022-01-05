@@ -1,4 +1,9 @@
-Vish provides functions that allow you to define your own registers and bindings. They're listed here, along with some examples.
+Vish provides functions that allow you to define your own registers and bindings, as well as do some rudimentary scripting. They're listed here, along with some examples.
+
+## Scripting
+
+* Function `_vish_register_get <key> <set>` can be used to read a register value from the register set. Directory set is called DIRS, while commandline set is called PREFICES.
+* `_vish_register_set_to <key> <set> <value>` can likewise set a value, `_vish_register_clear <key> <set>` can clear it and `_vish_register_list <set>` can list all registers from a set.
 
 ## Custom bindings
 
@@ -20,7 +25,6 @@ function print_basename -a key
 	basename $dir
 end
 ```
-Function `_vish_register_get <key> <set>` can be used to read a register value from the register set. Directory set is called DIRS, while commandline set is called PREFICES.
 
 ### Bind number
 `_vish_bind_numbers` can be used to bind a function accepting a number from 1 to 9 or -1 to -9. It's bound to a sequence `<L><number><letter>`, like so:

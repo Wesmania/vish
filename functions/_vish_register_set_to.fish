@@ -1,4 +1,4 @@
-function _vish_register_set_to -a name -a key -a value
+function _vish_register_set_to -a key -a name -a value
 	switch $key
 		case (_vish_registers)
 			set -l regs _VISH_BOUND_$name

@@ -1,3 +1,3 @@
-function _vish_register_clear -a name -a key
-	_vish_register_set_to $name $key ""
+function _vish_register_clear -a key -a name
+	_vish_register_set_to $key $name ""
 end
